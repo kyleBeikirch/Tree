@@ -1,16 +1,34 @@
-Branch branch;
+Trunk tree = new Trunk();
 
 void setup() 
+{     
+   size(800, 800);
+   smooth();
+   fill(255);
+   background(0);
+   noStroke();
+     
+}
+
+void draw()
 {
-  size(800, 800);
-  smooth();
-  fill(255);
-  background(0);
-  branch = new Branch(0);
+  tree.growTree(); 
 }
 
 
-void draw() 
-{
-  branch.grow();
+class Trunk {
+  
+    Branch branch;
+        
+    Trunk()
+    {
+      branch = new Branch(0);
+    }
+    
+    void growTree()
+    {
+      branch.grow();
+    }
+ 
+    
 }

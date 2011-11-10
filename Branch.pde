@@ -1,11 +1,12 @@
 class Branch {
   boolean growing = true;
   boolean branched = false;
-  Branch[] branches;
+  ArrayList branches = new ArrayList();
   int lifeSpan = round(random(25, 200));
   int age = 0;
   int offsetX;
   int lineY = round(random(0, 800));
+  Branch branch;
   
   Branch(int startPosX)
   {
@@ -25,7 +26,16 @@ class Branch {
     
       else
       {
-        ellipse(age+offsetX, lineY, 5, 5);
+        ellipse(age+offsetX, lineY, 3, 3);
+      }
+    }
+    
+    else
+    {
+      for (int i = 0; i < branches.size(); i++) 
+      { 
+        Branch childBranch = (Branch) branches.get(i);
+        childBranch.grow();
       }
     }
     
@@ -38,6 +48,7 @@ class Branch {
     for(int i = 0; i < numChildren; i++)
     {
         branch = new Branch(age+offsetX);
+        branches.add(branch);
     }
     
   }
