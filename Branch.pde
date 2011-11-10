@@ -7,9 +7,12 @@ class Branch {
   int offsetX;
   int lineY = round(random(0, 800));
   Branch branch;
+  float rad;
   
-  Branch(int startPosX)
+  Branch(int startPosX, float startAngle)
   {
+    float angleOffset = random(-2, 2);
+    rad = (PI / (startAngle + angleOffset));
     offsetX = startPosX;
   }
   
@@ -26,7 +29,14 @@ class Branch {
     
       else
       {
-        ellipse(age+offsetX, lineY, 3, 3);
+            fill(0);
+            ellipse(age+offsetX, 0, 3, 3);
+            fill(255);
+            pushMatrix();
+            rotate(rad);
+            translate(400, 400);
+            ellipse(age+offsetX, 0, 3, 3);
+            popMatrix();
       }
     }
     
@@ -47,7 +57,7 @@ class Branch {
     int numChildren = round(random(1, 3));
     for(int i = 0; i < numChildren; i++)
     {
-        branch = new Branch(age+offsetX);
+        branch = new Branch(age+offsetX, rad);
         branches.add(branch);
     }
     

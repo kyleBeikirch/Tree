@@ -7,7 +7,7 @@ void setup()
    fill(255);
    background(0);
    noStroke();
-   frameRate(12);
+   frameRate(15);
      
 }
 
@@ -23,7 +23,7 @@ class Trunk {
         
     Trunk()
     {
-      branch = new Branch(0);
+      branch = new Branch(0, 0);
     }
     
     void growTree()
