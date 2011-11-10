@@ -7,6 +7,7 @@ void setup()
    fill(255);
    background(0);
    noStroke();
+   frameRate(12);
      
 }
 
