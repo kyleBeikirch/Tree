@@ -6,7 +6,7 @@ void setup()
   smooth();
   fill(255);
   background(0);
-  branch = new Branch();
+  branch = new Branch(0);
 }
 
 
